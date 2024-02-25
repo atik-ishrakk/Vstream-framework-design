@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Welcome to Online Streaming</title>
+    <!-- Add your CSS link here -->
+</head>
+<body>
+    <center><h1>Welcome to Online Streaming</h1></center>
+    <nav>
+        <ul>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+        <form action="{% url 'search' %}" method="GET">
+            <input type="text" name="query" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+    </nav>
+    <!-- Display videos here -->
+    <div id="search-results">
+        <!-- Display videos here -->
+        <video controls crossorigin>
+            <source src="https://path/to/your/video.mp4" type="video/mp4">
+            <!-- Additional video sources if needed -->
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
+    <script src="{% static 'js/main.js' %}"></script> <!-- Include main.js -->
+    <script>
+        const player = new Plyr('video');
+    </script>
+    <script src="{% static 'js/main.js' %}"></script> <!-- Include main.js -->
+</body>
+</html>
